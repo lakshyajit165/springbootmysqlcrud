@@ -8,10 +8,12 @@ services:
       - 8080:8080
     depends_on:
       - db
+    command: ["./wait-for-it.sh", "mysqldb:3307", "java", "-jar", "springsqlcrud.jar"]
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3308/library
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
+
 
   db:
     image: mysql:5.7
