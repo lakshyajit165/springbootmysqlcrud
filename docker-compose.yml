@@ -10,7 +10,7 @@ services:
 #      - db
 #    command: ["./wait-for-it.sh", "mysqldb:3307", "java", "-jar", "springsqlcrud.jar"]
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3308/library
+      SPRING_DATASOURCE_URL: jdbc:mysql://0.0.0.0:3308/library
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
 
