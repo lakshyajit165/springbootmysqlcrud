@@ -16,6 +16,10 @@ public class BookController {
     @Autowired
     BookRepository bookRepository;
 
+    @GetMapping("/books/welcome")
+    public String welcomeMessage() {
+        return "Welcome home!";
+    }
     // Get All Notes
     @GetMapping("/books")
     public List<Book> getAllNotes() {
