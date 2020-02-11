@@ -4,25 +4,31 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    ports:
-      - 8080:8080
-    depends_on:
-      - db
-    command: ["./wait-for-it.sh", "mysqldb:3307", "java", "-jar", "springsqlcrud.jar"]
+#    networks:
+#      - mynetwork
+#    depends_on:
+#      - db
+#    command: ["./wait-for-it.sh", "mysqldb:3307", "java", "-jar", "springsqlcrud.jar"]
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3308/library
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
 
 
-  db:
-    image: mysql:5.7
-    container_name: mysqldb
-    ports:
-      - 3308:3306
-    restart: always
-    environment:
-      MYSQL_DATABASE: library
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
+#  db:
+#    image: mysql:5.7
+#    container_name: mysqldb
+#    networks:
+#      - mynetwork
+#    restart: always
+#
+#    ports:
+#      - 3308:3306
+#    environment:
+#      MYSQL_DATABASE: library
+#      MYSQL_PASSWORD: root
+#      MYSQL_ROOT_PASSWORD: root
 
+
+#networks:
+#  mynetwork:

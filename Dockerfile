@@ -7,6 +7,6 @@ RUN mvn -Dmaven.repo.local=$MVN_LOCAL_REPO -f pom.xml clean package -DskipTests
 
 #stage -2 for creating the image of the project
 FROM openjdk:8
-EXPOSE 8080
+EXPOSE 8081
 COPY --from=build /target/springsqlcrud-0.0.1-SNAPSHOT.jar springsqlcrud.jar
 ENTRYPOINT ["java", "-jar", "/springsqlcrud.jar"]
